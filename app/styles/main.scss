@@ -1,0 +1,149 @@
+@use 'variables' as *;
+@use 'animations' as *;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: $color-bg-dark;
+    color: $color-text-main;
+    font-family: $font-main;
+    overflow-x: hidden;
+    height: 100vh;
+    // Futuristic Grid Background
+    background-image:
+        linear-gradient(rgba($color-primary, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba($color-primary, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+// Container
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+// Main Title
+.title-glitch {
+    font-size: 4rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: $color-text-main;
+    text-shadow: 2px 2px $color-secondary;
+    margin-bottom: 2rem;
+    @include animate-fade-in-up(0s);
+
+    &:hover {
+        animation: glitchShake 0.3s infinite;
+    }
+}
+
+// Form Styling
+.todo-form {
+    background: rgba($color-bg-panel, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 15px;
+    border: $border-glass;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    @include animate-fade-in-up(0.2s);
+
+    input {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba($color-primary, 0.3);
+        color: $color-text-main;
+        padding: 1rem;
+        font-size: 1.2rem;
+        border-radius: 5px;
+        outline: none;
+        transition: 0.3s;
+
+        &:focus {
+            border-color: $color-primary;
+            box-shadow: 0 0 10px rgba($color-primary, 0.2);
+        }
+    }
+
+    button {
+        background: linear-gradient(90deg, $color-primary, $color-accent);
+        color: #000;
+        font-weight: bold;
+        font-size: 1.2rem;
+        padding: 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-transform: uppercase;
+        @include hover-neon;
+    }
+}
+
+// Task List
+.task-list {
+    list-style: none;
+    margin-top: 2rem;
+
+    .task-item {
+        background: rgba($color-bg-panel, 0.6);
+        border: 1px solid rgba($color-primary, 0.1);
+        margin-bottom: 1rem;
+        padding: 1.5rem;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include animate-fade-in-up(0.4s);
+        transition: 0.3s;
+
+        &:hover {
+            border-color: $color-primary;
+            transform: translateX(10px);
+        }
+
+        .task-content {
+            h4 {
+                font-size: 1.5rem;
+                color: $color-primary;
+                margin-bottom: 0.5rem;
+            }
+
+            p {
+                color: $color-text-dim;
+                font-size: 1.1rem;
+            }
+        }
+
+        .delete-btn {
+            background: transparent;
+            border: 1px solid $color-secondary;
+            color: $color-secondary;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+
+            &:hover {
+                background: $color-secondary;
+                color: white;
+                box-shadow: $shadow-neon-pink;
+            }
+        }
+    }
+}
+
+.empty-state {
+    text-align: center;
+    font-size: 2rem;
+    color: $color-text-dim;
+    margin-top: 3rem;
+    @include animate-fade-in-up(0.5s);
+    opacity: 0.5;
+}

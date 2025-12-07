@@ -1,0 +1,25 @@
+// Futuristic / Cyberpunk Color Palette
+$color-bg-dark: #050505;
+$color-bg-panel: #0a0a0a;
+$color-primary: #00f3ff; // Cyan Neon
+$color-secondary: #ff0055; // Pink Neon
+$color-accent: #7000ff; // Purple Neon
+$color-text-main: #ffffff;
+$color-text-dim: #888888;
+
+// Gradients
+$gradient-main: linear-gradient(135deg, $color-bg-dark 0%, #111111 100%);
+$gradient-glass: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+
+// Fonts
+$font-main: 'Arial', sans-serif; // Placeholder for a futuristic font if we added one
+$font-mono: 'Courier New', monospace;
+
+// Effects
+$shadow-neon-cyan: 0 0 10px rgba($color-primary, 0.5), 0 0 20px rgba($color-primary, 0.3);
+$shadow-neon-pink: 0 0 10px rgba($color-secondary, 0.5), 0 0 20px rgba($color-secondary, 0.3);
+$border-glass: 1px solid rgba(255, 255, 255, 0.1);
+
+// Z-Index
+$z-background: -1;
+$z-content: 10;
